@@ -1,0 +1,67 @@
+// Variables
+// ––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// Colours
+$colors: () !default;
+$colors: map-merge(
+    (
+        // Required base colours
+        "white":                rgb(255, 255, 255),
+        "black":                rgb(17, 17, 17),
+        "primary":              rgb(10, 211, 255),
+        "secondary":            rgb(235, 236, 238),
+        // Greyscale
+        "smoke":                rgb(240, 240, 240),
+        "silver":               rgb(221, 221, 221),
+        "gray":                 rgb(170, 170, 170)
+    ),
+    $colors
+);
+
+// Base Colors
+$font-color:                    rgb(62, 62, 62) !default;
+
+$generic-margin-bottom:         1.5rem !default;  // used as a starting point for other variables applied to elements
+
+// Borders
+$border-width:                  1px !default;
+$border-color:                  map-get($colors, "silver") !default;
+
+// Miscellaneous
+$global-radius:                 .25rem !default;
+$darken-hover-percent:          10% !default;  // used within hovers in links and buttons
+$animation-speed-fast:          400ms !default;
+$easing-default:                cubic-bezier(.25, .46, .45, .94) !default;  // easeOutQuad - Further easing options can be found at https://easings.net/
+
+// Forms
+$form-margin-bottom:            $generic-margin-bottom !default;
+
+$input-use-full-width:          false !default;  // false = max-width:100%, true = width:100%
+$input-background:              rgb(255, 255, 255) !default;
+$input-border-radius:           $global-radius !default;
+$input-border-width:            $border-width !default;
+$input-border-color:            $border-color !default;
+$input-font-size:               1.5rem !default;
+$input-font-color:              $font-color !default;
+$input-line-height:             1.5 !default;
+$input-padding-y:               .8rem !default;
+$input-padding-x:               1rem !default;
+$input-placeholder-color:       rgb(185, 185, 185) !default;
+$input-margin-bottom:           1.5rem !default;
+$input-transition:              background-color $easing-default $animation-speed-fast, border-color $easing-default $animation-speed-fast !default;
+
+$input-background-focus:        $input-background !default;
+$input-border-color-focus:      map-get($colors, "primary") !default;
+
+// These should not need changing, they are used to force selects to the same height as inputs
+$input-height-border:           $input-border-width * 2 !default;
+$input-height-inner:            ($input-padding-y * 2) + ($input-font-size * $input-line-height) !default;
+$input-height:                  calc(#{$input-height-inner} + #{$input-height-border}) !default;
+
+$textarea-min-height:           14rem !default;
+
+$fieldset-padding:              1rem 1.5rem 0 !default;
+$legend-padding:                0 1rem !default;
+
+// Labels
+$label-font-weight:             600 !default;

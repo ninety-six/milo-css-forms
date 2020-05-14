@@ -1,0 +1,100 @@
+@import "./variables";
+
+@import "./mixins/input";
+
+// stylelint-disable selector-no-qualifying-type
+
+form { margin-bottom: $form-margin-bottom; }
+
+input {
+    &[type="date"],
+    &[type="datetime"],
+    &[type="datetime-local"],
+    &[type="email"],
+    &[type="month"],
+    &[type="number"],
+    &[type="password"],
+    &[type="search"],
+    &[type="tel"],
+    &[type="text"],
+    &[type="url"],
+    &[type="week"] {
+        @include input;
+        @include input-size;
+        @include input-width;
+        @include input-focus;
+        -webkit-appearance: none; // stylelint-disable-line property-no-vendor-prefix
+    }
+
+    &[type="date"],
+    &[type="datetime"],
+    &[type="datetime-local"],
+    &[type="month"],
+    &[type="week"] {
+        -webkit-appearance: listbox; // stylelint-disable-line property-no-vendor-prefix
+        height: $input-height;
+    }
+
+    // only set some simple margin as components will handle the style better
+    &[type="checkbox"],
+    &[type="radio"] { margin-right: 1rem; }
+}
+
+// Correct the cursor style of increment and decrement buttons in Chrome.
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button { height: auto; }
+
+// Stop date controls in webkit being taller
+::-webkit-datetime-edit-fields-wrapper {
+    margin: 0;
+    padding: 0;
+}
+
+// Placeholder text
+::placeholder {
+    color: $input-placeholder-color;
+    opacity: 1;
+}
+
+textarea {
+    @include input;
+    @include input-size;
+    @include input-width;
+    @include input-focus;
+    -webkit-appearance: none; // stylelint-disable-line property-no-vendor-prefix
+    min-height: $textarea-min-height;
+    overflow: auto;
+}
+
+select {
+    @include input;
+    @include input-size;
+    @include input-width;
+    @include input-focus;
+    text-transform: none;
+    &:not([multiple]) { height: $input-height; }
+}
+
+label {
+    display: block;
+    font-weight: $label-font-weight;
+    margin-bottom: .5rem;
+}
+
+legend {
+    box-sizing: border-box;
+    color: inherit;
+    display: block;
+    font-size: 80%;
+    font-weight: $label-font-weight;
+    max-width: 100%;
+    padding: $legend-padding;
+    white-space: normal;
+}
+
+fieldset {
+    border-color: $border-color;
+    border-width: $border-width;
+    margin-bottom: $input-margin-bottom;
+    padding: $fieldset-padding;
+}
